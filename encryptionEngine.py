@@ -94,8 +94,9 @@ def get_secure_decrypted(payload: bytes, key: bytes, nonce: bytes, tag: bytes) -
         cipher = AES.new(key=key,mode=AES.MODE_GCM,nonce=nonce)
         plaintext = cipher.decrypt_and_verify(payload,tag)
         return plaintext
-    except ValueError:
-        tk.show_message('E', 'Invalid Password')
+    except ValueError as err:
+        err_msg = str(err)
+        tk.show_message('E', f'Error: {err_msg}')
         sys.exit(1)
 
 def encrypt_file(password: str, payload: bytes) -> bytes:

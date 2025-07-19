@@ -26,5 +26,6 @@ def show_message(type: str, message: str) -> None:
     elif type == 'E':
         messagebox.showerror('Error', message)
 
-def open_settings():
-    sys.exit(1)
+def open_debug() -> str:
+    mypath = input()
+    return mypath

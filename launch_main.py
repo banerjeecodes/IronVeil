@@ -5,9 +5,9 @@ import tkgui as tk
 import encryptionEngine as e
 
 if len(sys.argv) < 2: #the program is run without a file path.
-    tk.open_settings()
-
-path = sys.argv[1]
+    path = tk.open_debug()
+else:
+    path = sys.argv[1]
 p.validate_path(path)
 
 dir_path, name, ext = p.get_metadata(path)
